@@ -1,15 +1,11 @@
+
+import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-/**
- * Created with IntelliJ IDEA.
- * User: ohardy
- * Date: 7/9/13
- * Time: 5:59 PM
- * To change this template use File | Settings | File Templates.
- */
+
 public class Client {
 
     private int port;
@@ -23,7 +19,7 @@ public class Client {
         try{
             Socket socket = new Socket("localhost",port);
             PrintWriter out = new PrintWriter(socket.getOutputStream());
-            InputStreamReader in = new InputStreamReader(socket.getInputStream());
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             boolean notDone = true;
             while(notDone){
                 System.out.println("Choose Operation: Add, Subtract, or Exit");
@@ -44,7 +40,7 @@ public class Client {
             }
 
         }catch(Exception e){
-
+            e.printStackTrace();
         }
     }
 
@@ -58,7 +54,7 @@ public class Client {
                 invalid = false;
             }
             catch(Exception e){
-
+                e.printStackTrace();
             }
         }
         return number;
