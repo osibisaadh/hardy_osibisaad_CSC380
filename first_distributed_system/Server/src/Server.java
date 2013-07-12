@@ -7,7 +7,6 @@ public class Server {
         int count = 0;
         while(true){
             try{
-
                 ServerSocket socket = new ServerSocket(8888);
                 Socket client = socket.accept();
                 System.out.println("Accepted");
