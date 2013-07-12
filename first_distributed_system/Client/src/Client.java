@@ -2,7 +2,10 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.lang.reflect.Method;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -17,19 +20,45 @@ public class Client {
 
     public void Connect(){
         try{
+            List<Operation> operationList = new ArrayList<Operation>();
             Socket socket = new Socket("localhost",port);
             PrintWriter out = new PrintWriter(socket.getOutputStream());
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            String options = in.readLine();
+            String[] methods = options.split(";");
+            for(String method : methods){
+                String[] signature = method.split(":");
+                String[] params = signature[1].split(",");
+                operationList.add(new Operation(signature[0].toLowerCase(), params));
+            }
+            System.out.println(options);
+            String prompt = "Choose Operation: ";
+
+            for(Operation o : operationList){
+                prompt += o.getName() + ",";
+            }
+            prompt += " or Exit";
+
             boolean notDone = true;
             while(notDone){
-                System.out.println("Choose Operation: Add, Subtract, or Exit");
+
+                System.out.println(prompt);
                 String operation = scan.nextLine();
+
                 operation = operation.toLowerCase();
-                if(operation.equals("add") || operation.equals("subtract")){
-                    System.out.println("You chose " + operation + ", now choose your numbers");
-                    out.println(operation + " " + getInput() + "," + getInput());
+                if(operationExists(operationList, operation)){
+                    System.out.println("You chose " + operation + ", now insert its parameters");
+                    Operation oper = getOperation(operationList, operation);
+                    String request = operation + " ";
+                    List<Class> params = oper.getParams();
+                    for(int i = 0; i < params.size(); i++){
+                        request +=  getInput(params.get(i).getName());
+                        if(i < params.size()-1)
+                            request += ",";
+                    }
+                    out.println(request);
                     out.flush();
-                    System.out.println(in.read());
+                    System.out.println("Answer: " + in.readLine());
                 }
                 else if(operation.equals("exit")){
                     notDone = false;
@@ -41,21 +70,45 @@ public class Client {
         }catch(Exception e){
             e.printStackTrace();
         }
+
+
     }
 
-    public int getInput(){
+    public Operation getOperation(List<Operation> operationList, String operation){
+        for(Operation o : operationList)
+            if(o.getName().equals(operation))
+                return o;
+        return null;
+    }
+
+    public boolean operationExists(List<Operation> operationList, String operation){
+        boolean found = false;
+
+        for(int i = 0; i < operationList.size() && !found; i++){
+            found = operationList.get(i).getName().equals(operation);
+        }
+
+        return found;
+    }
+
+    public String getInput(String type){
         boolean invalid = true;
-        int number = 0;
+        String input = "";
         while(invalid){
-            System.out.println("Input a integer.");
+            System.out.println("Input a " + type + ".");
             try{
-                number = scan.nextInt();
+                Class c = Class.forName(type);
+                Method m = c.getMethod("valueOf",String.class);
+
+                input += m.invoke(null,scan.next()) + ":" + type;
+                System.out.println(input.split(":")[0]);
                 invalid = false;
+
             }
             catch(Exception e){
                 e.printStackTrace();
             }
         }
-        return number;
+        return input;
     }
 }
