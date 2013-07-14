@@ -24,6 +24,7 @@ public class Client {
             Socket socket = new Socket("localhost",port);
             PrintWriter out = new PrintWriter(socket.getOutputStream());
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
             String options = in.readLine();
             String[] methods = options.split(";");
             for(String method : methods){
