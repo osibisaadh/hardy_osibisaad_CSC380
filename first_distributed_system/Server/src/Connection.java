@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Set;
 
 public class Connection implements Runnable {
+
+    private static String packageName = "libs";
     private Socket socket;
     private int connectionNr;
     private PrintWriter out;
@@ -26,7 +28,6 @@ public class Connection implements Runnable {
                 null, null, null);
 
         JavaFileManager.Location location = StandardLocation.CLASS_PATH;
-        String packageName = "libs";
         Set<JavaFileObject.Kind> kinds = new HashSet<JavaFileObject.Kind>();
         kinds.add(JavaFileObject.Kind.CLASS);
         boolean recurse = false;
@@ -35,9 +36,9 @@ public class Connection implements Runnable {
                 kinds, recurse);
 
         for (JavaFileObject javaFileObject : list) {
-            String[] file = javaFileObject.getName().split("/");
-            System.out.println(javaFileObject.getName());
-            String[] fileName = file[file.length-1].split(".");
+            String[] file = javaFileObject.getName().split("\\\\");
+            String[] fileName = file[file.length-1].split("\\.");
+
             commands.add(Class.forName(packageName + "." + fileName[0]));
             System.out.println(packageName + "." + fileName[0]);
         }
@@ -47,53 +48,65 @@ public class Connection implements Runnable {
 
     public void run(){
         boolean notDone = true;
-        boolean needPrompt = true;
 
-        while(notDone){
-            try{
-                out = new PrintWriter(this.socket.getOutputStream());
-                in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
+        while(notDone) try {
+            out = new PrintWriter(this.socket.getOutputStream());
+            in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
 
-                List<Class> classes = getClasses();
-                System.out.println(classes.indexOf(0));
+            String classPrompt = "";
+            List<Class> classes = getClasses();
+            for (Class classOption : classes) {
+                classPrompt += classOption.getName().split("\\.")[1] + " ";
+            }
+            classPrompt = classPrompt.substring(0, classPrompt.length() - 1);
+            System.out.println(classPrompt);
+            out.println(classPrompt);
+            out.flush();
 
-                out.println(getMethods());
-                out.flush();
+            String className = in.readLine();
 
-                String request  = in.readLine();
-                System.out.println(request);
-                String[] parts = request.split(" ");
-                String[] numbers = parts[1].split(",");
+            out.println(getMethods(packageName + "." + className));
+            out.flush();
 
-                Class operator = Class.forName("libs.MathLogic");
-                String answer = "";
-                for(Method m : operator.getMethods()){
+            String request = in.readLine();
+            System.out.println(request);
+            String[] parts = request.split(" ");
+            String[] numbers = null;
+            if(parts.length > 1){
+                 numbers = parts[1].split(",");
+            }
 
-                    if(m.getName().toLowerCase().equals(parts[0])){
-                        Object[] args = new Object[numbers.length];
-                        for(int i = 0; i < numbers.length; i++){
+            Class operator = Class.forName(packageName + "." + className);
+            String answer = "";
+            for (Method m : operator.getMethods()) {
+
+                if (m.getName().toLowerCase().equals(parts[0])) {
+                    Object[] args = null;
+                    if(numbers != null){
+                        args = new Object[numbers.length];
+                        for (int i = 0; i < numbers.length; i++) {
                             String[] param = numbers[i].split(":");
                             Class c = Class.forName(param[1]);
-                            Method method = c.getMethod("valueOf",String.class);
-
+                            Method method = c.getMethod("valueOf", String.class);
 
                             args[i] = method.invoke(null, param[0]);
                         }
-                        answer += m.invoke(operator, args);
 
                     }
+                    answer += m.invoke(operator.newInstance(), args);
+
+
                 }
-
-                System.out.println(answer);
-                out.println(answer);
-                out.flush();
-
             }
-            catch(Exception e){
-                e.printStackTrace();
-                System.out.println(connectionNr + " Disconnected.");
-                notDone = false;
-            }
+
+            System.out.println(answer);
+            out.println(answer);
+            out.flush();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(connectionNr + " Disconnected.");
+            notDone = false;
         }
     }
 
@@ -113,10 +126,10 @@ public class Connection implements Runnable {
         return null;
     }
 
-    public String getMethods(){
+    public String getMethods(String className){
         String s = "";
         try{
-            Class c = Class.forName("libs.MathLogic");
+            Class c = Class.forName(className);
             for(Method m : c.getDeclaredMethods()){
                 s += m.getName() + ":";
                 boolean hasParams = false;
