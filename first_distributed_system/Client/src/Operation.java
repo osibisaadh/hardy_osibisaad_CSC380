@@ -17,12 +17,15 @@ public class Operation {
     public Operation(String name, String[] params){
         this.name = name;
         this.params = new ArrayList<Class>();
-        for(String param : params){
-            try {
-                this.params.add(Class.forName(param));
-            }catch(Exception e){
-                e.printStackTrace();
+        if(params != null){
+            for(String param : params){
+                try {
+                    this.params.add(Class.forName(param));
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
             }
+
         }
 
     }
