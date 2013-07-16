@@ -24,7 +24,7 @@ public class Client {
         while(invalid){
             try{
                 System.out.println("Type the name of your class choice: ");
-                input = scan.next();
+                input = scan.nextLine();
                 for(String option : options){
                     if(input.toLowerCase().trim().equals(option.toLowerCase())){
                         invalid = false;
