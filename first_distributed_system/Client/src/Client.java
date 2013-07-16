@@ -74,7 +74,6 @@ public class Client {
                     String options = in.readLine();
                     String[] methods = options.split(";");
                     for(String method : methods){
-
                         String[] signature = method.split(":");
                         String[] params = null;
                         if(signature.length > 1){
@@ -90,7 +89,6 @@ public class Client {
                     }
                     prompt += " or Exit";
 
-
                     System.out.println(prompt);
                     boolean invalid = true;
                     String operation ="";
@@ -101,17 +99,16 @@ public class Client {
                                 invalid = false;
                             }
 
-                            }
-                            catch(Exception e ){
-                                e.printStackTrace();
-                            }
+                        }catch(Exception e ){
+                            e.printStackTrace();
+                        }
 
                     }
                     operation = operation.toLowerCase();
                     if(operationExists(operationList, operation)){
                         System.out.println("You chose " + operation + ", now insert its parameters");
                         Operation oper = getOperation(operationList, operation);
-                        String request = operation + " ";
+                        String request = operation + "|||";
                         List<Class> params = oper.getParams();
                         if(params.size() > 0 ){
                             for(int i = 0; i < params.size(); i++){
@@ -164,18 +161,24 @@ public class Client {
         String input = "";
         while(invalid){
             System.out.println("Input a " + type + ".");
-            try{
-                Class c = Class.forName(type);
-                Method m = c.getMethod("valueOf",String.class);
-
-                input += m.invoke(null,scan.next()) + ":" + type;
-                System.out.println(input.split(":")[0]);
+            if(type.equals("java.lang.String")){
+                input += scan.next() + "::" + type;
                 invalid = false;
+            }
+            else{
+                try{
+                    Class c = Class.forName(type);
+                    Method m = c.getMethod("valueOf",String.class);
+                    input += m.invoke(null,scan.next()) + "::" + type;
+                    invalid = false;
 
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
             }
-            catch(Exception e){
-                e.printStackTrace();
-            }
+
+
         }
         return input;
     }

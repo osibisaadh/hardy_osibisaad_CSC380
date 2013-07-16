@@ -7,7 +7,7 @@
  */
 public class Driver {
     public static void main(String[] args){
-        Client c = new Client(8888);
-        c.Connect();
+        Client client = new Client(8889);
+        client.Connect();
     }
 }
