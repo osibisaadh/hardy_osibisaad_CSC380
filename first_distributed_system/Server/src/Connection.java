@@ -35,7 +35,7 @@ public class Connection implements Runnable {
                 classPrompt += classOption.getName().split("\\.")[1] + " ";
             }
             classPrompt = classPrompt.substring(0, classPrompt.length() - 1);
-            System.out.println(classPrompt);
+
             out.println(classPrompt);
             out.flush();
 
@@ -45,8 +45,7 @@ public class Connection implements Runnable {
             out.flush();
 
             String request = in.readLine();
-            System.out.println(request);
-            String[] parts = request.split(" ");
+            String[] parts = request.split("\\|\\|\\|");
             String[] numbers = null;
             if(parts.length > 1){
                  numbers = parts[1].split(",");
@@ -55,27 +54,28 @@ public class Connection implements Runnable {
             Class operator = Class.forName(packageName + "." + className);
             String answer = "";
             for (Method m : operator.getMethods()) {
-
-                if (m.getName().toLowerCase().equals(parts[0])) {
+                if (m.getName().toLowerCase().equals(parts[0].toLowerCase())) {
                     Object[] args = null;
+
                     if(numbers != null){
                         args = new Object[numbers.length];
                         for (int i = 0; i < numbers.length; i++) {
-                            String[] param = numbers[i].split(":");
-                            Class c = Class.forName(param[1]);
-                            Method method = c.getMethod("valueOf", String.class);
+                            String[] param = numbers[i].split("::");
+                            if(!param[1].equals("java.lang.String")){
+                                Class c = Class.forName(param[1]);
+                                Method method = c.getMethod("valueOf", String.class);
+                                args[i] = method.invoke(null, param[0]);
 
-                            args[i] = method.invoke(null, param[0]);
+                            }
+                            else
+                                args[i] = param[0];
+
                         }
 
                     }
                     answer += m.invoke(operator.newInstance(), args);
-
-
                 }
             }
-
-            System.out.println(answer);
             out.println(answer);
             out.flush();
 

@@ -50,7 +50,6 @@ public class Functions {
             String[] fileName = file[file.length-1].split("\\.");
 
             commands.add(Class.forName(packageName + "." + fileName[0]));
-            System.out.println(packageName + "." + fileName[0]);
         }
 
         return commands;
@@ -87,7 +86,9 @@ public class Functions {
                     hasParams = true;
                 }
                 if(hasParams)
-                    s = s.substring(0, s.length()-1) + ";";
+                    s = s.substring(0, s.length()-1);
+                s += ";";
+
             }
 
         }catch(Exception e){

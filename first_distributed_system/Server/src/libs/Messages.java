@@ -11,4 +11,8 @@ public class Messages {
     public String Hobo(){
         return "Homeless yo";
     }
+
+    public String Echo(String echo){
+        return echo;
+    }
 }

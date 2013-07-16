@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -12,10 +13,16 @@ public class Server {
     }
 
     public void run(){
+        ServerSocket socket = null;
+        try {
+            socket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
         int count = 0;
         while(true){
             try{
-                ServerSocket socket = new ServerSocket(port);
+                System.out.println("Server Started");
                 Socket client = socket.accept();
                 System.out.println("Accepted");
                 Connection c = new Connection(client, functions,count);
