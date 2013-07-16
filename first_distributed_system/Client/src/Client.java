@@ -162,14 +162,14 @@ public class Client {
         while(invalid){
             System.out.println("Input a " + type + ".");
             if(type.equals("java.lang.String")){
-                input += scan.next() + "::" + type;
+                input += scan.nextLine() + "::" + type;
                 invalid = false;
             }
             else{
                 try{
                     Class c = Class.forName(type);
                     Method m = c.getMethod("valueOf",String.class);
-                    input += m.invoke(null,scan.next()) + "::" + type;
+                    input += m.invoke(null,scan.nextLine()) + "::" + type;
                     invalid = false;
 
                 }
