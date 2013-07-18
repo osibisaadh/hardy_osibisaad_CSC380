@@ -20,6 +20,7 @@ public class Operation {
         if(params != null){
             for(String param : params){
                 try {
+                    System.out.println(param);
                     this.params.add(Class.forName(param));
                 }catch(Exception e){
                     e.printStackTrace();

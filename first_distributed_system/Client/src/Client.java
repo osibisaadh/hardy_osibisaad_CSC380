@@ -94,7 +94,7 @@ public class Client {
                     String operation ="";
                     while(invalid){
                         try{
-                            operation = scan.nextLine();
+                            operation = scan.nextLine().toLowerCase();
                             if(operationExists(operationList, operation) || operation.equals("exit")){
                                 invalid = false;
                             }
@@ -105,6 +105,7 @@ public class Client {
 
                     }
                     operation = operation.toLowerCase();
+                    System.out.println(operation);
                     if(operationExists(operationList, operation)){
                         System.out.println("You chose " + operation + ", now insert its parameters");
                         Operation oper = getOperation(operationList, operation);
