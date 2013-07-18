@@ -1,5 +1,7 @@
 package libs;
 
+import util.Person;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Osibisaad
@@ -14,5 +16,11 @@ public class Messages {
 
     public String Echo(String echo){
         return echo;
+    }
+
+    public String newFile(Person person){
+
+
+        return "Person " + person.getName() + " age: " + person.getAge();
     }
 }

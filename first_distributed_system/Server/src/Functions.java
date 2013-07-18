@@ -1,5 +1,7 @@
 import javax.tools.*;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Member;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -55,7 +57,7 @@ public class Functions {
         return commands;
     }
 
-    private String getPrimitiveType(String name)
+    public String getPrimitiveType(String name)
     {
         if (name.equals("byte")) return "java.lang.Byte";
         if (name.equals("short")) return "java.lang.Short";
@@ -72,29 +74,68 @@ public class Functions {
     }
 
     public String getMethods(String className){
-        String s = "";
+        String curString = "";
         try{
+            boolean hasParams = false;
             Class c = Class.forName(className);
             for(Method m : c.getDeclaredMethods()){
-                s += m.getName() + ":";
-                boolean hasParams = false;
-                for(Class param : m.getParameterTypes() ){
-                    if(getPrimitiveType(param.getName()) !=null)
-                        s+= getPrimitiveType(param.getName()) + ",";
-                    else
-                        s+= param.getName() + ",";
+                curString += m.getName() + ":";
+                if(m.getParameterTypes().length > 0){
                     hasParams = true;
+                    curString = getMethodParameterTypes(m, curString);
                 }
                 if(hasParams)
-                    s = s.substring(0, s.length()-1);
-                s += ";";
-
+                    curString = curString.substring(0, curString.length()-1);
+                curString += ";";
             }
-
         }catch(Exception e){
             e.printStackTrace();
         }
-        return s;
+        return curString;
+    }
+
+
+
+    private String getMethodParameterTypes(Method m, String curString){
+        for(Class param : m.getParameterTypes() ){
+            if(getPrimitiveType(param.getName()) !=null)
+                curString+= getPrimitiveType(param.getName()) + ",";
+            else{
+                if(param.getName().equals("java.lang.String"))
+                    curString+= param.getName() + ",";
+                else{
+                    Constructor[] constructors = param.getDeclaredConstructors();
+                    if(constructors.length > 1)
+                        curString = getConstructorParameterTypes(constructors[1], curString);
+                    else
+                        curString = getConstructorParameterTypes(constructors[0], curString);
+                }
+            }
+        }
+        return curString;
+    }
+
+    private String getConstructorParameterTypes(Constructor m, String curString){
+        for(Class param : m.getParameterTypes() ){
+            if(getPrimitiveType(param.getName()) !=null)
+                curString+= getPrimitiveType(param.getName()) + ",";
+            else{
+                if(param.getName().equals("java.lang.String"))
+                    curString+= param.getName() + ",";
+                else{
+                    Constructor[] constructors = param.getDeclaredConstructors();
+                    if(constructors.length >= 1){
+                        if(constructors[0].getParameterTypes().length > 1)
+                            getConstructorParameterTypes(constructors[1], curString);
+                        else
+                            getConstructorParameterTypes(constructors[0], curString);
+                    }
+
+                }
+
+            }
+        }
+        return curString;
     }
 
 }
