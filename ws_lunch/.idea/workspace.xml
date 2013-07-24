@@ -25,7 +25,7 @@
     <file path="$PROJECT_DIR$/../../../Java Projects/jaxbReview/src/edu/neumont/jaxb/Library.java" changelist="db4a18df-5071-4e31-9dda-28f0cd4b2cec" time="1374697221161" ignored="false" />
     <file path="$PROJECT_DIR$/../../../Java Projects/jaxbReview/src/edu/neumont/jaxb/ObjectFactory.java" changelist="db4a18df-5071-4e31-9dda-28f0cd4b2cec" time="1374697221161" ignored="false" />
     <file path="/fragment.java" changelist="db4a18df-5071-4e31-9dda-28f0cd4b2cec" time="1374697277870" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../Java Projects/jaxbReview/.idea/workspace.xml" changelist="db4a18df-5071-4e31-9dda-28f0cd4b2cec" time="1374703918279" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../Java Projects/jaxbReview/.idea/workspace.xml" changelist="db4a18df-5071-4e31-9dda-28f0cd4b2cec" time="1374704492320" ignored="false" />
     <file path="$PROJECT_DIR$/../../../Java Projects/jaxbReview/.idea/misc.xml" changelist="db4a18df-5071-4e31-9dda-28f0cd4b2cec" time="1374697280268" ignored="false" />
     <file path="$PROJECT_DIR$/../../../Java Projects/jaxbReview/src/edu/neumont/jaxb/Author.java" changelist="db4a18df-5071-4e31-9dda-28f0cd4b2cec" time="1374697926065" ignored="false" />
     <file path="$PROJECT_DIR$/../../../Java Projects/jaxbReview/src/edu/neumont/jaxb/schema1.xsd" changelist="db4a18df-5071-4e31-9dda-28f0cd4b2cec" time="1374698168976" ignored="false" />
@@ -523,8 +523,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.278402" sideWeight="0.5125628" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4874372" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.278402" sideWeight="0.5125628" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4874372" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3295583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
