@@ -2,6 +2,7 @@ package models;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.List;
 
@@ -13,15 +14,12 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "menu")
+@XmlType(name = "menu", propOrder = {
+        "items"
+})
 public class Menu {
-    private List<Item> items;
-
-    public Menu() {}
-    public Menu(List<Item> items) {
-
-        this.items = items;
-    }
+    @XmlElement(nillable = false, name = "item", required = true)
+    protected List<Item> items;
 
     public List<Item> getItems() {
         return items;

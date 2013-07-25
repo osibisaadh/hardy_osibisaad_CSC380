@@ -1,9 +1,6 @@
 package models;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,22 +10,15 @@ import javax.xml.bind.annotation.XmlType;
  * To change this template use File | Settings | File Templates.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "book", propOrder = {
+@XmlType(name = "restaurant", propOrder = {
         "name",
         "menu"
 })
 public class Restaurant {
     @XmlAttribute(name = "name", required = true)
-    private String name;
-    @XmlAttribute(name = "menu", required = true)
-    private Menu menu;
-
-    public Restaurant(){}
-
-    public Restaurant(String name, Menu menu) {
-        this.name = name;
-        this.menu = menu;
-    }
+    protected String name;
+    @XmlElement(name = "menu", required = true)
+    protected Menu menu;
 
     public String getName() {
         return name;

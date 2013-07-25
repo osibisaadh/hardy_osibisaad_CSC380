@@ -3,18 +3,25 @@
   <component name="ChangeListManager">
     <list id="0536ab07-15cc-43d5-9d47-f802b1554ab5" name="Default" comment="Updates to client&#10;" />
     <list default="true" id="80b0c9cc-a950-40d2-b808-64b35a149560" name="Rejected commit: Default" comment="Updates to client&#10;">
-      <change type="DELETED" beforePath="D:\Documents\GitHub\hardy_osibisaad_CSC380\first_distributed_system\Server\out\production\Server\MathLogic.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Server/out/production/Server/Connection.class" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Connection.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Server/out/production/Server/Driver.class" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Driver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Server/out/production/Server/Server.class" afterPath="$PROJECT_DIR$/../Server/out/production/Server/Server.class" />
+      <change type="DELETED" beforePath="D:\Documents\GitHub\hardy_osibisaad_CSC380\ws_lunch\src\models\schema1.xsd" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ws_lunch/out/artifacts/ws_lunch_war_exploded/WEB-INF/classes/models/Menu.class" afterPath="$PROJECT_DIR$/../../ws_lunch/out/artifacts/ws_lunch_war_exploded/WEB-INF/classes/models/Menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ws_lunch/out/production/ws_lunch/models/Menu.class" afterPath="$PROJECT_DIR$/../../ws_lunch/out/production/ws_lunch/models/Menu.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ws_lunch/out/artifacts/ws_lunch_war_exploded/WEB-INF/classes/models/Restaurant.class" afterPath="$PROJECT_DIR$/../../ws_lunch/out/artifacts/ws_lunch_war_exploded/WEB-INF/classes/models/Restaurant.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ws_lunch/out/production/ws_lunch/models/Restaurant.class" afterPath="$PROJECT_DIR$/../../ws_lunch/out/production/ws_lunch/models/Restaurant.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ws_lunch/out/artifacts/ws_lunch_war_exploded/WEB-INF/classes/models/Restaurants.class" afterPath="$PROJECT_DIR$/../../ws_lunch/out/artifacts/ws_lunch_war_exploded/WEB-INF/classes/models/Restaurants.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ws_lunch/out/production/ws_lunch/models/Restaurants.class" afterPath="$PROJECT_DIR$/../../ws_lunch/out/production/ws_lunch/models/Restaurants.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ws_lunch/src/models/Item.java" afterPath="$PROJECT_DIR$/../../ws_lunch/src/models/Item.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ws_lunch/src/models/Menu.java" afterPath="$PROJECT_DIR$/../../ws_lunch/src/models/Menu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ws_lunch/src/models/Restaurant.java" afterPath="$PROJECT_DIR$/../../ws_lunch/src/models/Restaurant.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ws_lunch/src/models/Restaurants.java" afterPath="$PROJECT_DIR$/../../ws_lunch/src/models/Restaurants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../ws_lunch/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../ws_lunch/.idea/workspace.xml" />
     </list>
     <ignored path="Client.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Driver.java" changelist="80b0c9cc-a950-40d2-b808-64b35a149560" time="1373952730396" ignored="false" />
     <file path="/Client.java" changelist="80b0c9cc-a950-40d2-b808-64b35a149560" time="1374029138724" ignored="false" />
-    <file path="/Dummy.txt" changelist="80b0c9cc-a950-40d2-b808-64b35a149560" time="1374127370855" ignored="false" />
+    <file path="/Dummy.txt" changelist="80b0c9cc-a950-40d2-b808-64b35a149560" time="1374775027014" ignored="false" />
     <file path="/fragment.java" changelist="80b0c9cc-a950-40d2-b808-64b35a149560" time="1373689616943" ignored="false" />
     <file path="/Connection.java" changelist="80b0c9cc-a950-40d2-b808-64b35a149560" time="1374110205186" ignored="false" />
     <file path="/Server.java" changelist="80b0c9cc-a950-40d2-b808-64b35a149560" time="1373953111149" ignored="false" />
@@ -48,7 +55,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -85,6 +91,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -97,7 +104,7 @@
       <file leaf-file-name="Client.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="10" selection-start="3050" selection-end="3050" vertical-scroll-proportion="0.3783784">
+            <state line="92" column="10" selection-start="3050" selection-end="3050" vertical-scroll-proportion="1.2039073">
               <folding />
             </state>
           </provider>
@@ -430,7 +437,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32400933" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -439,10 +445,11 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33876812" sideWeight="0.6923077" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30769232" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32400933" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -610,9 +617,7 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_21/jre/lib/rt.jar!/sun/nio/cs/StreamDecoder.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="50" selection-start="3039" selection-end="3039" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="62" column="50" selection-start="3039" selection-end="3039" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Operation.java">
@@ -624,7 +629,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="10" selection-start="3050" selection-end="3050" vertical-scroll-proportion="0.3783784">
+        <state line="92" column="10" selection-start="3050" selection-end="3050" vertical-scroll-proportion="1.2039073">
           <folding />
         </state>
       </provider>

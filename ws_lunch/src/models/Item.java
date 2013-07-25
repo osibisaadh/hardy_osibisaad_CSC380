@@ -2,6 +2,7 @@ package models;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 
 /**
@@ -12,11 +13,21 @@ import javax.xml.bind.annotation.XmlType;
  * To change this template use File | Settings | File Templates.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "item")
+@XmlType(name = "item", propOrder = {
+        "name",
+        "price"
+})
 public class Item {
-    private String item;
-    private double price;
+    @XmlAttribute(name = "name", required = true)
+    protected String name;
+    @XmlAttribute(name = "price", required = true)
+    protected double price;
 
-    public Item(){}
+    public String getName() {
+        return name;
+    }
 
+    public double getPrice() {
+        return price;
+    }
 }
