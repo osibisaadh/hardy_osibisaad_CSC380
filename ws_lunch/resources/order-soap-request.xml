@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<soap:Envelope
+        xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+        soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+
+    <soap:Body xmlns:m="http://osibisaadhardy">
+        <m:CreateOrder>
+            <m:RestaurantId>1</m:RestaurantId>
+            <m:ItemId>1</m:ItemId>
+        </m:CreateOrder>
+    </soap:Body>
+
+</soap:Envelope>

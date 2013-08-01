@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<soap:Envelope
+        xmlns:soap="http://www.w3.org/2001/12/soap-envelope">
+    <soap:Body xmlns:m="http://osibisaadhardy/rResponse">
+        <m:RestaurantsResponse>
+            <m:Restaurant>
+                <m:Id>1</m:Id>
+                <m:Name>Lilly's</m:Name>
+            </m:Restaurant>
+            <m:Restaurant>
+                <m:Id>2</m:Id>
+                <m:Name>Joeee</m:Name>
+            </m:Restaurant>
+        </m:RestaurantsResponse>
+    </soap:Body>
+</soap:Envelope>

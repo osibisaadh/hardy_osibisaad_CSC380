@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<soap:Envelope
+        xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+        soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+
+    <soap:Body xmlns:m="http://osibisaadhardy">
+        <m:MenuResponse>
+            <m:Item>
+                <m:Id>1</m:Id>
+                <m:Name>DogPoo</m:Name>
+                <m:Price>2.34</m:Price>
+            </m:Item>
+            <m:Item>
+                <m:Id>2</m:Id>
+                <m:Name>Sandwich</m:Name>
+                <m:Price>1.30</m:Price>
+            </m:Item>
+        </m:MenuResponse>
+    </soap:Body>
+
+</soap:Envelope>
